@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;The Static Lab - Grade 5 Science&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Quicksand:wght@400;600&amp;display=swap');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--primary: #4f46e5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--secondary: #f59e0b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--accent: #10b981;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--bg: #f3f4f6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Quicksand', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>touch-action: manipulation;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1, h2, .font-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Fredoka One', cursive;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.lab-bench {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(to bottom, #d1d5db 0%, #9ca3af 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-top: 8px solid #4b5563;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.object-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>aspect-ratio: 1 / 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.electron {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #3b82f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.5s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 50;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.spark {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: flash 0.2s ease-out forwards;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes flash {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0% { transform: scale(0); opacity: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: scale(2); opacity: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.floating {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: float 3s ease-in-out infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes float {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0%, 100% { transform: translateY(0); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>50% { transform: translateY(-10px); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#micro-view {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: radial-gradient(circle, #2d3748 0%, #1a202c 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid #4a5568;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#inventory::-webkit-scrollbar {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#inventory::-webkit-scrollbar-thumb {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #cbd5e1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="min-h-screen flex flex-col"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Header --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="bg-indigo-600 text-white p-4 shadow-lg flex justify-between items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex items-center gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-yellow-400 p-2 rounded-full text-indigo-900 shadow-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"&gt;&lt;path d="M13 10V3L4 14H11V21L20 10H13Z"/&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-xl md:text-2xl tracking-wide leading-none uppercase"&gt;THE STATIC LAB&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-[10px] sm:text-xs font-semibold opacity-90 mt-1 uppercase tracking-wider"&gt;Created by: Sir Angelo Medez, LPT&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex gap-2 md:gap-4 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-indigo-800 px-3 md:px-4 py-1 rounded-full font-bold text-sm md:text-base"&gt;Score: &lt;span id="score"&gt;0&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showInstructions()" class="bg-indigo-500 hover:bg-indigo-400 px-3 py-1 rounded-md text-xs md:text-sm transition shadow-sm"&gt;Help&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Main Game Area --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="flex-grow flex flex-col md:flex-row p-4 gap-4 overflow-hidden"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Left Panel: The Experiment Zone --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex-grow flex flex-col gap-4"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="status-bar" class="bg-white p-4 rounded-xl shadow-md border-b-4 border-indigo-200 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg font-semibold text-gray-700" id="hint-text"&gt;Select two materials to rub together!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Interaction Stage --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex-grow relative flex items-center justify-around bg-blue-50 rounded-3xl border-2 border-dashed border-blue-200 p-8 overflow-hidden"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="slot-1" class="w-32 h-32 md:w-48 md:h-48 flex items-center justify-center bg-white/50 rounded-2xl border-2 border-gray-300 relative transition-all"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-gray-400 absolute pointer-events-none text-xs uppercase font-bold"&gt;Item 1&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="obj-container-1" class="z-10"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col items-center justify-center gap-4 z-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="rubbing-area" class="w-24 h-24 rounded-full bg-indigo-100 flex items-center justify-center hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="animate-ping absolute w-20 h-20 rounded-full bg-indigo-300 opacity-75"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-3xl"&gt;✨&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button id="rub-btn" onclick="startRubbing()" class="hidden bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 active:scale-95 transition"&gt;RUB THEM!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button id="reset-btn" onclick="resetLab()" class="hidden bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full shadow-md transition"&gt;Reset Lab&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="slot-2" class="w-32 h-32 md:w-48 md:h-48 flex items-center justify-center bg-white/50 rounded-2xl border-2 border-gray-300 relative transition-all"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-gray-400 absolute pointer-events-none text-xs uppercase font-bold"&gt;Item 2&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="obj-container-2" class="z-10"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="particle-field" class="absolute inset-0 pointer-events-none"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Micro View --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="micro-view-container" class="h-32 md:h-40 hidden flex flex-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-xs font-bold text-indigo-900 mb-1 ml-2 uppercase tracking-tighter"&gt;Microscope: Electron Flow&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="micro-view" class="flex-grow flex items-center justify-around"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="micro-atom-1" class="relative w-12 h-12 md:w-16 md:h-16 bg-red-400 rounded-full flex items-center justify-center text-white font-bold text-xl border-4 border-red-200"&gt;+&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-white text-[10px] mt-1" id="micro-label-1"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="transfer-path" class="w-1/2 h-1 bg-white/20 relative"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="micro-atom-2" class="relative w-12 h-12 md:w-16 md:h-16 bg-blue-400 rounded-full flex items-center justify-center text-white font-bold text-xl border-4 border-blue-200"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-white text-[10px] mt-1" id="micro-label-2"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Right Panel: Inventory Grid --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="w-full md:w-80 flex flex-col gap-4 h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-white p-4 rounded-xl shadow-md flex-grow overflow-hidden flex flex-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="font-title text-indigo-600 border-b-2 border-indigo-100 pb-2 mb-4 uppercase text-sm tracking-widest text-center"&gt;Material Inventory&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="inventory" class="grid grid-cols-2 md:grid-cols-2 gap-3 overflow-y-auto p-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- JS generated items as grid cells --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-indigo-900 text-white p-4 rounded-xl shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="font-title text-yellow-400 text-sm mb-2 uppercase"&gt;Did you know?&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p id="fact-box" class="text-xs md:text-sm leading-relaxed opacity-90"&gt;Static electricity comes from the Greek word "elektron," which means amber!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="lab-bench h-12 w-full"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="toast" class="fixed bottom-16 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-bold shadow-xl opacity-0 transition-opacity pointer-events-none z-[200]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Copied to clipboard!</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="overlay" class="fixed inset-0 bg-black/70 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="modal-content" class="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl transform transition-all text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const MATERIALS = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>balloon: { name: "Rubber Balloon", icon: "🎈", affinity: -3, color: "bg-pink-400", border: "border-pink-500", fact: "Rubber is an insulator that loves to steal electrons!" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>wool: { name: "Wool Sweater", icon: "🧶", affinity: 3, color: "bg-orange-200", border: "border-orange-300", fact: "Wool gives away electrons easily, making it positive." },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>glass: { name: "Glass Rod", icon: "🧪", affinity: 5, color: "bg-blue-100", border: "border-blue-200", fact: "Glass rod is very high on the series; it loses electrons easily." },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>silk: { name: "Silk Cloth", icon: "🧣", affinity: -1, color: "bg-purple-200", border: "border-purple-300", fact: "Silk grabs electrons from glass but gives them to rubber." },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>plastic: { name: "Plastic Comb", icon: "🪮", affinity: -4, color: "bg-gray-400", border: "border-gray-500", fact: "Plastic holds onto its electrons very tightly." },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>hair: { name: "Human Hair", icon: "🧑", affinity: 4, color: "bg-yellow-800", border: "border-yellow-900", fact: "Hair loses electrons quickly. That's why it stands up!" }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const STATE = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>selected: [],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>score: 0,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>isRubbing: false,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>discoveredPairs: new Set()</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function init() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const inv = document.getElementById('inventory');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Object.keys(MATERIALS).forEach(key =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const m = MATERIALS[key];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const div = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>div.className = `object-card ${m.color} p-2 rounded-xl shadow-sm border-b-4 border-black/10 flex flex-col items-center justify-center hover:scale-105 active:scale-95 transition-transform text-center`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>div.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-3xl md:text-4xl mb-1"&gt;${m.icon}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-[9px] md:text-[10px] font-bold uppercase leading-tight"&gt;${m.name}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>div.onclick = () =&gt; selectMaterial(key);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>inv.appendChild(div);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showInstructions();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function selectMaterial(key) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (STATE.isRubbing || STATE.selected.length &gt;= 2) return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (STATE.selected.includes(key)) return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>STATE.selected.push(key);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const slotIdx = STATE.selected.length;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const container = document.getElementById(`obj-container-${slotIdx}`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const slot = document.getElementById(`slot-${slotIdx}`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>container.innerHTML = `&lt;div class="text-6xl md:text-8xl floating"&gt;${MATERIALS[key].icon}&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>slot.classList.add('border-indigo-500', 'bg-indigo-50', 'shadow-inner');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (STATE.selected.length === 2) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('rub-btn').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('hint-text').innerText = "Click RUB THEM to start the reaction!";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('hint-text').innerText = "Now select Item 2 to compare.";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function startRubbing() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (STATE.isRubbing) return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>STATE.isRubbing = true;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('rub-btn').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('rubbing-area').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('micro-view-container').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const m1 = MATERIALS[STATE.selected[0]];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const m2 = MATERIALS[STATE.selected[1]];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('micro-label-1').innerText = m1.name;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('micro-label-2').innerText = m2.name;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const giver = m1.affinity &gt; m2.affinity ? 1 : 2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const receiver = giver === 1 ? 2 : 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; 12; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>createElectron(giver, receiver);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>await new Promise(r =&gt; setTimeout(r, 150));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (i % 4 === 0) createSpark();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; finishExperiment(STATE.selected[giver-1], STATE.selected[receiver-1]), 600);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function createElectron(fromIdx, toIdx) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const field = document.getElementById('particle-field');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const startEl = document.getElementById(`slot-${fromIdx}`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const endEl = document.getElementById(`slot-${toIdx}`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const startRect = startEl.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const endRect = endEl.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const fieldRect = field.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const e = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>e.className = 'electron';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>e.style.left = (startRect.left - fieldRect.left + startRect.width/2) + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>e.style.top = (startRect.top - fieldRect.top + startRect.height/2) + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>field.appendChild(e);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>e.offsetHeight;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>e.style.left = (endRect.left - fieldRect.left + endRect.width/2) + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>e.style.top = (endRect.top - fieldRect.top + endRect.height/2) + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>e.style.opacity = '0';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; e.remove(), 600);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const microPath = document.getElementById('transfer-path');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const me = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>me.className = 'electron';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>me.style.top = '-4px';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>me.style.left = fromIdx === 1 ? '0%' : '100%';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>microPath.appendChild(me);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; me.style.left = fromIdx === 1 ? '100%' : '0%', 10);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; me.remove(), 500);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function createSpark() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const area = document.getElementById('rubbing-area');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const s = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>s.className = 'spark text-xl';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>s.innerHTML = '⚡';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>s.style.left = (Math.random() * 60 + 20) + '%';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>s.style.top = (Math.random() * 60 + 20) + '%';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>area.appendChild(s);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; s.remove(), 300);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function finishExperiment(giverKey, receiverKey) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const giver = MATERIALS[giverKey];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const receiver = MATERIALS[receiverKey];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const pairId = [giverKey, receiverKey].sort().join('-');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let bonus = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!STATE.discoveredPairs.has(pairId)) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>STATE.discoveredPairs.add(pairId);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>bonus = 50;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>STATE.score += bonus;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('score').innerText = STATE.score;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('rubbing-area').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('reset-btn').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const resultHtml = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-2xl font-title text-indigo-600 mb-2 uppercase"&gt;Discovery!&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-4 text-left bg-gray-50 p-4 rounded-xl border border-indigo-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm"&gt;When rubbed, &lt;b&gt;electrons&lt;/b&gt; move from the ${giver.name} to the ${receiver.name}.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-around items-center py-4 bg-white rounded-lg shadow-inner border border-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-4xl"&gt;${giver.icon}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[10px] text-red-600 font-bold"&gt;+ POSITIVE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-lg text-gray-300"&gt;➡&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-4xl"&gt;${receiver.icon}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-[10px] text-blue-600 font-bold"&gt;- NEGATIVE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs text-gray-500 italic"&gt;Fact: ${receiver.fact}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col gap-2 mt-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="closeModal()" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl shadow-md"&gt;Continue Lab&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="shareResult('${giver.name}', '${receiver.name}')" class="w-full bg-indigo-100 text-indigo-700 font-bold py-2 rounded-xl text-sm border border-indigo-200"&gt;Share Result&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showModal(resultHtml);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function shareResult(giver, receiver) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const text = `I discovered that in Sir Angelo Medez's Static Lab, electrons move from ${giver} to ${receiver}! My score is ${STATE.score}! ⚡🔬`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const dummy = document.createElement("textarea");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.appendChild(dummy);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dummy.value = text;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dummy.select();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.execCommand("copy");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.removeChild(dummy);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const toast = document.getElementById('toast');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>toast.style.opacity = '1';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; toast.style.opacity = '0', 2000);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function resetLab() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>STATE.selected = [];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>STATE.isRubbing = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>['1','2'].forEach(id =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById(`obj-container-${id}`).innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById(`slot-${id}`).classList.remove('border-indigo-500', 'bg-indigo-50', 'shadow-inner');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('rub-btn').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('reset-btn').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('micro-view-container').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('hint-text').innerText = "Select two materials to rub together!";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showModal(content) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const overlay = document.getElementById('overlay');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const inner = document.getElementById('modal-content');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>inner.innerHTML = content;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overlay.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overlay.classList.add('flex');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function closeModal() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('overlay').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('overlay').classList.remove('flex');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showInstructions() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showModal(`</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-2xl font-title text-indigo-600 mb-4 uppercase"&gt;How to Play&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-left space-y-4 text-sm text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-3"&gt;&lt;span class="bg-indigo-100 w-6 h-6 rounded-full flex items-center justify-center font-bold text-indigo-600 shrink-0"&gt;1&lt;/span&gt; &lt;p&gt;Select 2 different items from the grid.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-3"&gt;&lt;span class="bg-indigo-100 w-6 h-6 rounded-full flex items-center justify-center font-bold text-indigo-600 shrink-0"&gt;2&lt;/span&gt; &lt;p&gt;Click &lt;b&gt;RUB THEM&lt;/b&gt; to watch electrons move between atoms.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-3"&gt;&lt;span class="bg-indigo-100 w-6 h-6 rounded-full flex items-center justify-center font-bold text-indigo-600 shrink-0"&gt;3&lt;/span&gt; &lt;p&gt;Discover all the &lt;b&gt;positive&lt;/b&gt; and &lt;b&gt;negative&lt;/b&gt; combinations!&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="closeModal()" class="mt-8 w-full bg-indigo-600 text-white font-bold py-3 rounded-xl shadow-lg"&gt;Start Experiment&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.onload = init;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
